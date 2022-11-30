@@ -564,6 +564,6 @@ public class TicTacToePage extends JFrame implements ActionListener
             return count;
         }
         
-        return checkRightSideUp(row + 1, col + 1, check, count + 1);
+        return checkRightSideDown(row + 1, col + 1, check, count + 1);
     }
 }
