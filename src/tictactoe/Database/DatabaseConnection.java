@@ -43,7 +43,6 @@ public class DatabaseConnection
         {
             System.out.println(e);
             JOptionPane.showMessageDialog(null, "Cannot close the database", "Error", JOptionPane.ERROR_MESSAGE);
-
         }
     }
 }

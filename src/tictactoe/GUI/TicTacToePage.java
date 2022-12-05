@@ -319,6 +319,10 @@ public class TicTacToePage extends JFrame implements ActionListener
         {
             showWinner(row, col);
         }
+        else if (checkTie())
+        {
+            showTie();
+        }
     }
     
     private void resetButtonClicked()
@@ -359,6 +363,14 @@ public class TicTacToePage extends JFrame implements ActionListener
         resetBoard();
     }
     
+    private void showTie()
+    {
+        resetTimer();
+        JOptionPane.showMessageDialog(null, "Tie!");
+        randomStartingPlayer();
+        resetBoard();
+    }
+    
     private void updateScore()
     {
         player1ScoreLabel.setText("Player X: " + String.valueOf(player1_score));
@@ -377,6 +389,21 @@ public class TicTacToePage extends JFrame implements ActionListener
               } 
            }
        }
+    }
+    
+    private boolean checkTie()
+    {
+        for (int i = 0; i < ROWS; i++)
+        {
+            for (int j = 0; j < COLS; j++)
+            {
+                if (xoButtons[i][j].getText().equals(""))
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
     
     private boolean checkHorizontal(int row, int col)
