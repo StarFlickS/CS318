@@ -11,9 +11,9 @@ public class DatabaseConnection
 {
     public Connection conn;
     private String url = "jdbc:sqlite:src/tictactoe/Database/database.db";
-    protected String sql;
-    protected PreparedStatement ps;
-    protected ResultSet rs;
+    public String sql;
+    public PreparedStatement ps;
+    public ResultSet rs;
     
     public DatabaseConnection()
     {
@@ -37,6 +37,8 @@ public class DatabaseConnection
     {
         try
         {
+            ps.close();
+            rs.close();
             conn.close();
         }
         catch (Exception e)

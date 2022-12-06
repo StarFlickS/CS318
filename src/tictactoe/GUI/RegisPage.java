@@ -168,14 +168,15 @@ public class RegisPage extends JFrame implements ActionListener
                         if (regis.checkUsernameExist(usernameEnt.getText()))
                         {
                             JOptionPane.showMessageDialog(null, "Username already exist", "Warning", JOptionPane.WARNING_MESSAGE);
+                            regis.closeDatabase();
                             usernameEnt.requestFocus();
                         }
                         else if (passText.equals(cfPassText))
                         {
                             if (regis.register(usernameEnt.getText(), passText))
                             {
-                                JOptionPane.showMessageDialog(null, "Registration Successfully.", "Registration Successfully.", JOptionPane.INFORMATION_MESSAGE);
                                 regis.closeDatabase();
+                                JOptionPane.showMessageDialog(null, "Registration Successfully.", "Registration Successfully.", JOptionPane.INFORMATION_MESSAGE);
                                 regisFrame.dispose();
                             }
                             else

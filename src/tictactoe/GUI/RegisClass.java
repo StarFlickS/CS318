@@ -16,6 +16,7 @@ public class RegisClass extends DatabaseConnection
         try
         {
             insertIntoLoginTable(username, pwd);
+            super.closeDatabase();
             return true;
         }
         catch (SQLException e)
@@ -41,7 +42,6 @@ public class RegisClass extends DatabaseConnection
         ps = conn.prepareStatement(sql);
         ps.setString(1, username);
         rs = ps.executeQuery();
-        
         return rs.next();  
     }
 }
